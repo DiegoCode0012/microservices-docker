@@ -1,0 +1,28 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: msvc-reservas
+          uri: lb://msvc-reservas
+          predicates:
+            - Path=/api/reservas/**
+          filters:
+            - StripPrefix=2
+        - id: msvc-usuarios
+          uri: lb://msvc-usuarios
+          predicates:
+            - Path=/api/usuarios/**
+          filters:
+            - StripPrefix=2
+        - id: msvc-habitaciones
+          uri: lb://msvc-habitaciones
+          predicates:
+            - Path=/api/habitaciones/**
+          filters:
+            - StripPrefix=2
+        - id: msvc-tipos
+          uri: lb://msvc-tipos
+          predicates:
+            - Path=/api/tipos/**
+          filters:
+            - StripPrefix=2
